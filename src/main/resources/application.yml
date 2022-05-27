@@ -1,0 +1,18 @@
+app:
+  tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+  tokenExpirationMsec: 864000000
+  authorizedRedirectUris:
+    - http://localhost:3000/oauth2/redirect
+    - https://app-sec01-group03.cs.mrg.com.pe/oauth2/redirect
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 270860399983-hnf8bd523taihmj8fdnh737i9im7jtfe.apps.googleusercontent.com
+            clientSecret: FIERzHbcbguB5NouCTL5EpsK
+            redirectUri: "https://api.cs.mrg.com.pe/api-sec01-group03/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
