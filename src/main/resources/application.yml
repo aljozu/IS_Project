@@ -12,7 +12,7 @@ spring:
           google:
             clientId: 270860399983-hnf8bd523taihmj8fdnh737i9im7jtfe.apps.googleusercontent.com
             clientSecret: FIERzHbcbguB5NouCTL5EpsK
-            redirectUri: "https://api.cs.mrg.com.pe/api-sec01-group03/oauth2/callback/{registrationId}"
+            redirectUri: "http://localhost:8080/oauth2/callback/{registrationId}"
             scope:
               - email
               - profile

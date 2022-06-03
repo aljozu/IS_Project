@@ -1,17 +1,9 @@
 package com.example.restbackend.service;
 
-import com.example.restbackend.model.proyeccion.Proyeccion;
-import com.example.restbackend.repositories.ProyeccionRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ProyeccionServiceTest {
