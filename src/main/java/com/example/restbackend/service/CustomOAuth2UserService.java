@@ -47,12 +47,19 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         Usuario usuario;
         if(usuarioOptional.isPresent()) {
             usuario = usuarioOptional.get();
-
             usuario = updateExistingUser(usuario, oAuth2UserInfo);
-            return UserPrincipal.create(usuario, oAuth2User.getAttributes());
+            //return UserPrincipal.create(usuario, oAuth2User.getAttributes());
         } else {
-            throw new OAuth2AuthenticationProcessingException("Email not found in the database");
+            usuario = new Usuario();
+            usuario.setName(oAuth2UserInfo.getName());
+            usuario.setImageUrl(oAuth2UserInfo.getImageUrl());
+            usuario.setGoogleId(oAuth2UserInfo.getId());
+            usuario.setRole("user");
+            usuarioRepository.save(usuario);
+
+            //throw new OAuth2AuthenticationProcessingException("Email not found in the database");
         }
+        return UserPrincipal.create(usuario, oAuth2User.getAttributes());
     }
 
     private Usuario updateExistingUser(Usuario usuario, OAuth2UserInfo oAuth2UserInfo) {
