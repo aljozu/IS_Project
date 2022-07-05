@@ -1,12 +1,12 @@
 package com.example.restbackend.controllers;
 
+import com.example.restbackend.extra.PDFReader;
 import com.example.restbackend.model.solicitud.Solicitud;
 import com.example.restbackend.service.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 @RestController
@@ -39,5 +39,12 @@ public class SolicitudController {
     @PutMapping(path = "/update/{id}/{status}")
     public void updateSolicitudByID(@PathVariable Long id, @PathVariable String status){
         solicitudService.updateSolicitudStatus(id, status);
+    }
+
+    @PutMapping(path = "/addSolicitudFromPDF/{path}")
+    public void createPDFSolitud(@PathVariable Long path) throws Exception {
+        PDFReader pdfReader = new PDFReader();
+        var solicitud = pdfReader.readPDF(String.valueOf(path));
+        solicitudService.addNewSolicitud(solicitud);
     }
 }

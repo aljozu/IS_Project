@@ -48,8 +48,8 @@ public class Solicitud {
     private Boolean approvalNeeded;
     @Column
     private Double assignedAmount;
-
-    @Column String status;
+    @Column
+    private String status;
 
     public Solicitud() {
     }

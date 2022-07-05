@@ -1,5 +1,6 @@
 package com.example.restbackend;
 
+import com.example.restbackend.extra.PDFReader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
