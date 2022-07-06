@@ -14,13 +14,6 @@
     <packaging>war</packaging>
     <name>restbackend</name>
     <description>Demo project for Spring Boot</description>
-    <properties>
-        <sonar.projectKey>cs2901-2021-1_project-backend-grupo3sinnombre</sonar.projectKey>
-        <sonar.organization>cs2901-2021-1</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.exclusions>src/main/java/com/example/restbackend/custom_exception/*.java, src/main/java/com/example/restbackend/security/oauth2/*.java, src/main/java/com/example/restbackend/security/restauth/RestAuthenticationEntryPoint.java</sonar.exclusions>
-        <java.version>11</java.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
