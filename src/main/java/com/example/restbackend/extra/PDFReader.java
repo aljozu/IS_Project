@@ -30,14 +30,14 @@ public class PDFReader {
         FileInputStream fileInputStream = new FileInputStream(file);
         PDDocument pdDocument = PDDocument.load(fileInputStream);
         PDFTextStripper pdfTextStripper = new PDFTextStripper();
-        var text = pdfTextStripper.getText(pdDocument);
+        String text = pdfTextStripper.getText(pdDocument);
 
         //System.out.println(text);
-        var pT = getWordUntilSpace(text, text.indexOf(projecTittle) + projecTittle.length()).replaceFirst("^\\s*", "");
-        var sD = getWordUntilSpace(text, text.indexOf(startDate) + startDate.length()).replaceFirst("^\\s*", "");
-        var bud = getWordUntilSpace(text, text.indexOf(budget) + budget.length());
-        var amount = CharMatcher.inRange('0', '9').retainFrom(bud);
-        var mon = bud.replace(amount, "").replaceFirst("^\\s*", "");
+        String pT = getWordUntilSpace(text, text.indexOf(projecTittle) + projecTittle.length()).replaceFirst("^\\s*", "");
+        String sD = getWordUntilSpace(text, text.indexOf(startDate) + startDate.length()).replaceFirst("^\\s*", "");
+        String bud = getWordUntilSpace(text, text.indexOf(budget) + budget.length());
+        String amount = CharMatcher.inRange('0', '9').retainFrom(bud);
+        String mon = bud.replace(amount, "").replaceFirst("^\\s*", "");
 
         solicitud.setTimeStamp(formattedString);
         solicitud.setProjectTitle(pT);

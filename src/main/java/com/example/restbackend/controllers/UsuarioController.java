@@ -28,25 +28,25 @@ public class UsuarioController {
 
     @GetMapping(path = "/existByEmail/{email}")
     public Boolean getUsuarioByEmail(@PathVariable String email){
-        var user = usuarioService.findOneByEmail(email);
+        Usuario user = usuarioService.findOneByEmail(email);
         return user != null;
     }
 
     @GetMapping(path = "/existById/{googleId}")
     public Boolean getUsuarioByGoogleId(@PathVariable String googleId){
-        var user = usuarioService.findOneByGoogleId(googleId);
+        Usuario user = usuarioService.findOneByGoogleId(googleId);
         return user != null;
     }
 
     @GetMapping(path = "/roleById/{googleId}")
     public String getUsuarioRolByGoogleId(@PathVariable String googleId){
-        var user = usuarioService.findOneByGoogleId(googleId);
+        Usuario user = usuarioService.findOneByGoogleId(googleId);
         return user.getRole();
     }
 
     @GetMapping(path = "/roleByEmail/{email}")
     public String getUsuarioRolByEmail(@PathVariable String email){
-        var user = usuarioService.findOneByEmail(email);
+        Usuario user = usuarioService.findOneByEmail(email);
         return user.getRole();
     }
 

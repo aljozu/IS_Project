@@ -48,7 +48,7 @@ public class UsuarioService {
     }
 
     public void updateUsuarioRole(String email, String role) {
-        var user = usuarioRepository.findUsuarioByEmail(email)
+        Usuario user = usuarioRepository.findUsuarioByEmail(email)
                 .orElseThrow(() -> new CustomException("La persona con el email: " + email + ", no existe."));
         user.setRole(role);
         usuarioRepository.save(user);

@@ -31,7 +31,7 @@ public class SolicitudService {
     }
 
     public void updateSolicitudStatus(Long id, String status){
-        var solicitud = solicitudRepository.findSolicitudesById(id)
+        Solicitud solicitud = solicitudRepository.findSolicitudesById(id)
                 .orElseThrow(() -> new CustomException("La solicitud no se encontró"));
         solicitud.setStatus(status);
         solicitudRepository.save(solicitud);
