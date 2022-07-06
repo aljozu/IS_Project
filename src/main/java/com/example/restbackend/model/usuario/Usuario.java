@@ -9,6 +9,9 @@ import javax.persistence.*;
 public class Usuario {
 
     @Id
+    @GeneratedValue
+    private Long id;
+    @Column(unique = true)
     private String email;
     @Column(nullable = true)
     private String name;

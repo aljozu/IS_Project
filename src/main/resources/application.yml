@@ -11,8 +11,7 @@ spring:
         registration:
           google:
             clientId: 270860399983-hnf8bd523taihmj8fdnh737i9im7jtfe.apps.googleusercontent.com
-            clientSecret: FIERzHbcbguB5NouCTL5EpsK
-            redirectUri: "http://localhost:8080/oauth2/callback/{registrationId}"
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope:
               - email
               - profile

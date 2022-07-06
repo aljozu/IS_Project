@@ -51,6 +51,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             //return UserPrincipal.create(usuario, oAuth2User.getAttributes());
         } else {
             usuario = new Usuario();
+            usuario.setEmail(oAuth2UserInfo.getEmail());
             usuario.setName(oAuth2UserInfo.getName());
             usuario.setImageUrl(oAuth2UserInfo.getImageUrl());
             usuario.setGoogleId(oAuth2UserInfo.getId());
