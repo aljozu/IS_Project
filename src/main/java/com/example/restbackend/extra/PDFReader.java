@@ -5,10 +5,7 @@ import com.google.common.base.CharMatcher;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.time.LocalDate;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Logger;
@@ -19,6 +16,7 @@ public class PDFReader {
     static String startDate = "Inicio del Proyecto";
     static String budget = "Total";
     public Solicitud readPDF(String PDFPath) throws Exception{
+        URL url = new URL(PDFPath);
         Solicitud solicitud = new Solicitud();
 
         LocalDateTime dateTime = LocalDateTime.now();
@@ -26,9 +24,7 @@ public class PDFReader {
                 = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm");
         String formattedString = formatter.format(dateTime);
 
-        File file = new File(PDFPath);
-        FileInputStream fileInputStream = new FileInputStream(file);
-        PDDocument pdDocument = PDDocument.load(fileInputStream);
+        PDDocument pdDocument = PDDocument.load(url.openStream());
         PDFTextStripper pdfTextStripper = new PDFTextStripper();
         String text = pdfTextStripper.getText(pdDocument);
 
@@ -47,9 +43,10 @@ public class PDFReader {
         solicitud.setStatus("Pending of information");
         solicitud.setFundingStatus("Pending");
         solicitud.setFundingInstitution("UTEC");
+        solicitud.setPDFlink(PDFPath);
 
         pdDocument.close();
-        fileInputStream.close();
+
         return solicitud;
     }
 
