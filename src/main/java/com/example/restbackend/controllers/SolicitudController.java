@@ -45,7 +45,7 @@ public class SolicitudController {
     @RequestMapping(path = "/addSolicitudFromPDF/**")
     public void createPDFSolitud(HttpServletRequest request) throws Exception {
         String fullUrl = request.getRequestURL().toString();
-        String url = fullUrl.split("/addAddress/")[1];
+        String url = fullUrl.split("/addSolicitudFromPDF/")[1];
         PDFReader pdfReader = new PDFReader();
         Solicitud solicitud = pdfReader.readPDF(url);
         solicitudService.addNewSolicitud(solicitud);

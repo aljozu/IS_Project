@@ -34,7 +34,7 @@ public class PDFReader {
         String bud = getWordUntilSpace(text, text.indexOf(budget) + budget.length());
         String amount = CharMatcher.inRange('0', '9').retainFrom(bud);
         String mon = bud.replace(amount, "").replaceFirst("^\\s*", "");
-
+        solicitud.setEmail("temporal@utec.edu.pe");
         solicitud.setTimeStamp(formattedString);
         solicitud.setProjectTitle(pT);
         solicitud.setStartDate(sD);
