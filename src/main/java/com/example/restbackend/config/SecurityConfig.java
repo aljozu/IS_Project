@@ -69,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.html",
                         "/**/*.css",
                         "/user/**",
-                        "/proyeccion/**",
+                        "/solicitud/**",
                         "/admin/**",
                         "/**/*.js")
                 .permitAll()
