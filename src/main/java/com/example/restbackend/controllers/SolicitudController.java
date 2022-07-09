@@ -6,6 +6,7 @@ import com.example.restbackend.service.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -41,10 +42,12 @@ public class SolicitudController {
         solicitudService.updateSolicitudStatus(id, status);
     }
 
-    @PostMapping(path = "/addSolicitudFromPDF/{path}")
-    public void createPDFSolitud(@PathVariable String path) throws Exception {
+    @RequestMapping(path = "/addSolicitudFromPDF/**")
+    public void createPDFSolitud(HttpServletRequest request) throws Exception {
+        String fullUrl = request.getRequestURL().toString();
+        String url = fullUrl.split("/addAddress/")[1];
         PDFReader pdfReader = new PDFReader();
-        Solicitud solicitud = pdfReader.readPDF(path);
+        Solicitud solicitud = pdfReader.readPDF(url);
         solicitudService.addNewSolicitud(solicitud);
     }
 }
