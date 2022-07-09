@@ -41,10 +41,10 @@ public class SolicitudController {
         solicitudService.updateSolicitudStatus(id, status);
     }
 
-    @PutMapping(path = "/addSolicitudFromPDF/{path}")
-    public void createPDFSolitud(@PathVariable Long path) throws Exception {
+    @PostMapping(path = "/addSolicitudFromPDF/{path}")
+    public void createPDFSolitud(@PathVariable String path) throws Exception {
         PDFReader pdfReader = new PDFReader();
-        Solicitud solicitud = pdfReader.readPDF(String.valueOf(path));
+        Solicitud solicitud = pdfReader.readPDF(path);
         solicitudService.addNewSolicitud(solicitud);
     }
 }
